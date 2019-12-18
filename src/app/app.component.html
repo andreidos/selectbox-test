@@ -1,0 +1,32 @@
+<dx-select-box
+  [buttons]="options.hasOwnProperty('buttons') ? options.buttons : undefined"
+  [dataSource]="options.hasOwnProperty('dataSource') ? options.dataSource : null"
+  [displayExpr]="options.hasOwnProperty('displayExpr') ? options.displayExpr : null"
+  [grouped]="true"
+  groupTemplate="group"
+  itemTemplate="item"
+  [openOnFieldClick]="false"
+  [showDropDownButton]="false"
+  [placeholder]="options.hasOwnProperty('placeholder') ? options.placeholder : ''"
+  [showClearButton]="true"
+  [value]="options.hasOwnProperty('value') ? options.value : ''"
+  [valueExpr]="options.hasOwnProperty('valueExpr') ? options.valueExpr : null"
+  [width]="options.hasOwnProperty('width') ? options.width : null"
+>
+  <div
+    *dxTemplate="let data of 'group'"
+    [class.ats-list-group-header-clickable]="data.items.length == 0"
+    (click)="options.onItemClick(data.key)"
+  >
+    {{data.key}}
+  </div>
+  <div *dxTemplate="let itemObj of 'item'">
+    <p>{{itemObj.Name}}: <b>{{itemObj.Count}}</b></p>
+  </div>
+</dx-select-box>
+<dx-button
+  text="Change search value"
+  [width]="250"
+  (onClick)="click($event)"
+></dx-button>
+<div>{{(options.value|json)}}</div>
