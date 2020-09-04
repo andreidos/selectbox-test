@@ -5,7 +5,7 @@
   "dependencies": {
     "zone.js": "0.6.25",
     "rxjs": "6.3.3",
-    "quill": "1.3.6",
+    "quill": "1.3.7",
     "jszip": "3.1.3",
     "devextreme-angular": "19.1",
     "devextreme": "19.1",
